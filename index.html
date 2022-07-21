@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>New Year Central - Home Page</title>
+		<title>Event Tickets Order Form</title>
 		<link rel="stylesheet" type="text/css" href="styles/normalize.css">
 		<link rel="stylesheet" type="text/css" href="styles/main.css">		
 	</head>
@@ -18,10 +18,10 @@
 			<!-- navigation starts -->
 			<nav id="nav_menu">
 				<ul>
-					<li><a href="index.html" class="current">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="about_us.html">About Us</a></li>
 					<li><a href="products.html">Our Products</a></li>
-					<li><a href="tickets_order_form.html">Event Tickets</a></li>
+					<li><a href="tickets_order_form.html" class="current">Event Tickets</a></li>
 					<li><a href="contact_us.html">Contact Us</a></li>
 				</ul>
 			</nav>
@@ -36,35 +36,122 @@
 			</aside>
 			
 			<main>
-				<h1>Welcome to my site! Come in and stay a while</h1>		
-				<p>New Year has always been my favorite holiday. 5 years ago I have started desigining and hand-making 
-				different New Year products. My adventure that started as making New Year gifts for friends 
-				took a turn this year, when I started selling some of my favourite products. They turned out to be quite a hit, and so I have
-				started this website.</p>			
-				<p>If you click on the About me link, you can browse my favorite New Year pictures, stories, and movies. 
-				And if you join my email list, I will keep you up-to-date on all things New Year.</p>
-				<h2>Product Categories</h2>			
-				<ul id="product-categories">
-					<li>
-						<img src="images/ornament.png" alt="An ornament" style="height:100px; width: 100px;">					
-						<h3><a href="assets/products/ornaments.html">Ornaments</a></h3>
-						<p>Unique Christmas ornaments make trees look extra festive.</p>
-					</li>
-					<li>
-						<img src="images/wreath.jpg" alt="A wreath" style="height:100px; width: 100px;">
-						<h3><a href="assets/products/wreaths-and-garland.html">Wreaths &amp; Garland</a></h3>
-						<p>Sparkling and frosted Christmas wreaths and green garland add the holiday cheer.</p>
-					</li>
-					<li>
-						<img src="images/stocking.jpg" alt="A stocking" style="height:100px; width: 100px;">
-						<h3><a href="assets/products/stockings.html">Stockings</a></h3>
-						<p>Order personalized Christmas stockings for your family.</p>
-					</li>
-				</ul>
-				<h2>Shipping and Returns Policy</h2>
-				<p>Free shipping with any purchase of 3 or more products.</p>
-				<p>If you are not completely satisfied with everything you buy from my site, you can return it
-					for a full refund. <strong>No questions asked!</strong></p>
+				<h1>Order Event Tickets</h1>
+				<!-- The form starts here... -->
+				<form name="order_form" id="order_form" action="place_order.html" method="post">
+				
+		<h3>Order Events Tickets</h3>
+		<fieldset>
+			<legend>Member Information</legend>
+				<label for="email">E-mail:</label>
+				<input type="email" name="email" id="email" autofocus required title="E-mail address format:brown@gmail.com"><br>
+				<label for="firstName">First Name:</label>
+				<input type="text" name="firstName" id="firstName" required><br>
+				<label for="lastName">Last Name:</label>
+				<input type="text" name="lastName" id="lastName" required><br>
+				<label for="address">Address:</label>
+				<input type="text" name="address" id="address"><br>
+				<label for="city">City:</label>
+				<input type="text" name="city" id="city" required><br>
+				<label for="province">Province:</label>
+				<input type="text" name="province" id="province" placeholder="2-character code" required pattern="[A-Za-z]{2}" maxlength="2" title="Input 2 letters"><br>
+				<label for="postalcode">Postal Code:</label>
+				<input type="text" name="postal code" id="postalcode" placeholder="6 characters" required pattern="[A-Za-z0-9]{6}" maxlength="6" title="Enter 6 alphanumeric characters"><br>
+				<label for="phonenumber">Phone number:</label>
+				<input type="tel" name="phonenumber" id="phonenumber" placeholder="999-999-9999" pattern="\d{3}[\-]\d{3}[\-]\d{4}" maxlength="12" title="Please enter format 999-999-9999"><br>
+		</fieldset>
+
+		<fieldset>
+			<!-- The drop-down list & textbox  -->
+			<legend>Ordering Information</legend>
+			<label for="Event:">Event:</label>
+			<select name="event">
+				<option value="cookie decoration contest"selected>Cookie Decoration Contest</option>
+				<option value="tree decoration contest">Tree Decoration Contest</option>
+				<option value="gift of light ride-along">Gift of Light Ride-Along</option>
+				<option value="breakfast with santa">Breakfast with Santa</option><br>
+			</select><br>
+			
+			<label for="Order Type">Order Type:</label>
+			<select name="order type">
+				<option value="member package"selected>Member Package</option>
+				<option value="donor package">Donor Package</option>
+				<option value="single tickets">Single Tickets</option><br>
+			</select><br>
+			
+			<label for="number of tickets">Number of Tickets:</label>
+			<input type="number" name="ticketnumber" id="ticketnumber" placeholder="Number of single tickets" max="100000" maxlength="6" title="Enter numerical value"><br>
+			</fieldset>	
+			
+			<fieldset>
+			
+			<legend>Payment Method</legend>
+			<div id="payment_method">
+			<!-- The radio buttons, coded as a radio group -->
+			<input type="radio" id="Billme" name="payment" value="Billme" accesskey="B">
+			<label for="BillMe"><u>B</u>ill Me</label>
+			<input type="radio" id="CreditCard" name="payment" value="CreditCard" accesskey="C">
+			<label for="CreditCard"><u>C</u>redit Card</label>
+			</div>
+			</fieldset>
+			
+					
+			<fieldset>
+			<!-- The drop-down list  -->
+			<legend>Credit Card Information</legend>
+			<label for="Credit Type:">Card Type:</label>
+			<select name="credittype">
+				<option value="visa"selected>Visa</option>
+				<option value="master card">Master Card</option>
+				<option value="discover">Discover</option>
+			</select><br>
+			
+			<label for="cardnumber">Card Number:</label>
+			<input type="text" name="cardnumber" id="cardnumber" maxlength="19" placeholder="16 digits" required pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" title="Input 16 digit card number"><br>
+			
+			<div id = "expirationdate_month">
+			<label for="expiration date:">Expiration Date:</label>
+			<select name="expirationdate" >
+				
+				<option value="jan"selected>January</option>
+				<option value="Feb">February</option>
+				<option value="Mar">March</option>
+				<option value="Apr">April</option>
+				<option value="May">May</option>
+				<option value="Jun">June</option>
+				<option value="Jul">July</option>
+				<option value="Aug">August</option>
+				<option value="Sep">September</option>
+				<option value="Oct">October</option>
+				<option value="Nov">November</option>
+				<option value="Dec">December</option>
+			</div>
+			</select>
+				
+			<div id = "expirationdate_year">
+			<label for="expiration date"></label>
+			<select name="expirationdate">
+				
+				<option value="2021"selected>2021</option>
+				<option value="2021">2022</option>
+				<option value="2021">2023</option>
+				<option value="2021">2024</option>
+				<option value="2021">2025</option>
+				<option value="2021">2026</option>
+				<option value="2021">2027</option>
+			</div>				
+								
+			</select>
+			</fieldset>	
+			
+			<fieldset>
+			<legend>Submit Your Order</legend>
+		
+			<!-- The submit buttons-->
+			<input type="submit" id="submit" value="Submit">
+			<input type="reset" id="reset" value="Reset Fields">
+			</fieldset>
+			</form>		
 			</main>
 			
 			<footer>
